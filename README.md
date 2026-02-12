@@ -5,29 +5,29 @@ This project builds and compares machine learning classification models to predi
 
 The dataset used is the QSAR Biodegradation dataset from the UCI Machine Learning Repository. It contains 1055 compounds described by 41 molecular descriptors, with a binary target indicating biodegradable or non-biodegradable.
 
-Data Processing
+Data Processing:
 
-Checked for missing and infinite values
+-Checked for missing and infinite values
 
-Verified zero-variance features
+-Verified zero-variance features
 
-Assessed duplicate rows
+-Assessed duplicate rows
 
-Identified moderate class imbalance (699 non-biodegradable, 356 biodegradable)
+-Identified moderate class imbalance (699 non-biodegradable, 356 biodegradable)
 
-Performed 80:20 train-test split
+-Performed 80:20 train-test split
 
-Applied z-score normalization using training statistics only to prevent data leakage
+-Applied z-score normalization using training statistics only to prevent data leakage
 
-Conducted Pearson correlation analysis to assess feature collinearity
+-Conducted Pearson correlation analysis to assess feature collinearity
 
-Retained outliers as QSAR descriptors can contain meaningful extreme values
+-Retained outliers as QSAR descriptors can contain meaningful extreme values
 
-Models Implemented
+Models Implemented:
 
-Logistic Regression
+-Logistic Regression
 
-Support Vector Machine with RBF kernel
+-Support Vector Machine with RBF kernel
 
 Gaussian Naive Bayes
 
