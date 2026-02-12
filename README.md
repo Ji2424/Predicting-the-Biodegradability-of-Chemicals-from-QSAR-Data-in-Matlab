@@ -1,121 +1,68 @@
-🔬 Project Overview
+Project Title
+Predicting Chemical Biodegradability Using QSAR Data
 
-Title: Predicting Chemical Biodegradability Using QSAR Data
+Overview
+This project builds and compares machine learning classification models to predict whether a chemical compound is biodegradable based on molecular descriptors. The dataset used is the QSAR Biodegradation dataset from the UCI Machine Learning Repository. It contains 1055 compounds described by 41 molecular descriptors, with a binary target indicating biodegradable or non-biodegradable.
 
-This project builds and compares machine learning classification models to predict whether a chemical compound is biodegradable based on molecular descriptors.
+Data Processing:
 
-Dataset:
+-Checked for missing and infinite values
 
-QSAR Biodegradation Dataset (UCI)
+-Verified zero-variance features
 
-1055 organic compounds
+-Assessed duplicate rows
 
-41 molecular descriptors
+-Identified moderate class imbalance (699 non-biodegradable, 356 biodegradable)
 
-Binary target: biodegradable (1) or non-biodegradable (0)
+-Performed 80:20 train-test split
 
-⚙️ Data Processing & Validation
+-Applied z-score normalization using training statistics only to prevent data leakage
 
-Key preprocessing steps:
+-Conducted Pearson correlation analysis to assess feature collinearity
 
-Checked for missing and infinite values
+-Retained outliers as QSAR descriptors can contain meaningful extreme values
 
-Verified zero-variance features (none found)
 
-Assessed duplicate rows
+Models Implemented:
 
-Identified moderate class imbalance (699 vs 356)
+-Logistic Regression
 
-Performed 80:20 hold-out split
+-Support Vector Machine with RBF kernel
 
-Applied z-score normalisation using training statistics only
+-Gaussian Naive Bayes
 
-Conducted Pearson correlation analysis to assess collinearity
+All models were trained on normalized training data and evaluated on a separate test set.
 
-Outliers were detected but retained, as extreme descriptor values may represent valid chemical properties rather than noise.
+Model Performance:
 
-🤖 Models Implemented
+*Logistic Regression
+*Accuracy: 0.882
+*AUC: 0.920
+*Showed balanced sensitivity and specificity.
 
-Three classification models were trained and compared:
+*Support Vector Machine (RBF)
+*Accuracy: 0.872
+*AUC: 0.920
+*Produced similar ranking performance to logistic regression. Nonlinear boundary did not significantly improve results.
 
-1️⃣ Logistic Regression
+*Naive Bayes
+*Accuracy: 0.526
+*AUC: 0.703
+*Lower performance due to violation of the conditional independence assumption. Strong bias toward the positive class.
 
-Linear classifier
+Key Conclusion:
+Logistic regression is recommended for this dataset. It achieved high predictive performance while maintaining interpretability, which is important for environmental and regulatory decision-making.
 
-Interpretable model
+Skills Demonstrated:
 
-Sensitive to scaling and collinearity
+1) Data preprocessing and validation
 
-2️⃣ Support Vector Machine (RBF Kernel)
+2) Prevention of data leakage
 
-Nonlinear decision boundary
+3) Feature scaling and collinearity analysis
 
-Kernel scale automatically estimated
+4) Implementation of multiple classifiers in MATLAB
 
-Box constraint = 1
+5) Model comparison using ROC curves and AUC
 
-Internal standardisation disabled to prevent leakage
-
-3️⃣ Gaussian Naive Bayes
-
-Assumes conditional independence
-
-Computationally efficient
-
-Used as baseline model
-
-📊 Model Evaluation
-
-Evaluation Metrics:
-
-Accuracy
-
-Confusion Matrix
-
-ROC Curve
-
-Area Under Curve (AUC)
-
-🔹 Logistic Regression
-
-Accuracy: 0.882
-
-AUC: 0.920
-
-Balanced sensitivity and specificity
-
-🔹 SVM (RBF)
-
-Accuracy: 0.872
-
-AUC: 0.920
-
-Similar ranking performance to logistic regression
-
-No clear improvement despite nonlinear boundary
-
-🔹 Naive Bayes
-
-Accuracy: 0.526
-
-AUC: 0.703
-
-Poor specificity
-
-Strong bias toward positive class
-
-Performance limited by violated independence assumption
-
-🏆 Key Findings
-
-Logistic Regression and SVM performed strongly and similarly.
-
-Logistic Regression is preferred due to:
-
-Slightly higher accuracy
-
-Simpler structure
-
-Better interpretability for regulatory contexts
-
-Naive Bayes underperformed due to correlated QSAR descriptors.
+6) Interpretation of model assumptions and limitations
